@@ -4,6 +4,10 @@
 
 #include <ostream>
 #include <algorithm>
+
+#define SUSPECT_STATIC(Type, var, init, Module) \
+  static Type var = (spct::add<Module>((#var), var), init);
+
 namespace spct
 {
   struct DefaultModuleTag;

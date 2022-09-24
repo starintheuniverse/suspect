@@ -5,8 +5,8 @@
 
 void function_one(float x)
 {
-  static int count =  (spct::add("count", count), 0);
-  static float mult = (spct::add("mult", mult), 1);
+  SUSPECT_STATIC(int, count, 0,);
+  SUSPECT_STATIC(float, mult, 1.0f,);
 
   ++count;
   mult *= x;
@@ -15,7 +15,7 @@ void function_one(float x)
 struct FancyModule;
 void function_two()
 {
-  static int fancy_count = (spct::add<FancyModule>("fancy_count", fancy_count), 0);
+  SUSPECT_STATIC(int, fancy_count, 0, FancyModule);
   ++fancy_count;
 }
 
