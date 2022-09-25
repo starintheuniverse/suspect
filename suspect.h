@@ -8,6 +8,9 @@
 #define SUSPECT_STATIC(Type, var, init, Module) \
   static Type var = (spct::add<Module>((#var), var), init);
 
+#define SUSPECT_STATIC_COUNTER(Type, var, Module) \
+  { static Type var = (spct::add<Module>((#var), var), Type{}); ++var; }
+
 namespace spct
 {
   struct DefaultModuleTag;
